@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Interactive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Sarah Terkowsky</a></h1>
+    </header>
+
+    <div id="legend">
+        <div class="legend-item">
+            <img src="src/marker-icon-red.png" alt="Marqueur Résidence" />
+            <p>Résidences</p>
+        </div>
+        <div class="legend-item">
+            <img src="src/marker-icon-blue.png" alt="Expériences professionnelles" />
+            <p>Expériences professionnelles</p>
+        </div>
+        <div class="legend-item">
+            <img src="src/marker-icon-green.png" alt="Marqueur Formation" />
+            <p>Formation</p>
+        </div>
+        <div class="legend-item">
+            <img src="src/marker-icon-orange.png" alt="Marqueur Loisirs" />
+            <p>Loisirs</p>
+        </div>
+        <div class="legend-item">
+            <img src="src/marker-icon-yellow.png" alt="Marqueur Voyages" />
+            <p>Voyages</p>
+        </div>
+    </div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+
+    var map = L.map('map').setView([48.29001056264622, 6.942234663726967], 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    var marker1 = L.marker([48.28998427897814, 6.942234527541871], {icon: customIcon('green')}).addTo(map);
+    marker1.bindPopup('<p>IUT de Saint-Dié-des-Vosges | <a href="IUT.html">BUT MMI</a></p>');
+    marker1.on('click', function () {
+        this.openPopup();
+    });
+
+    var marker2 = L.marker([49.30562556719472, 6.11209395151226], {icon: customIcon('green')}).addTo(map);
+    marker2.bindPopup('<p><a href="">Lycée Saint-Exupéry</a></p>');
+    marker2.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker3 = L.marker([49.364590819255966, 6.15872128641122], {icon: customIcon('green')}).addTo(map);
+    marker3.bindPopup('<p>Lycée La Briquerie | BAC STI2D et 1ère année de BTS SNIR</p>');
+    marker3.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker4 = L.marker([49.314024053772464, 6.057876288642326], {icon: customIcon('green')}).addTo(map);
+    marker4.bindPopup('<p>Collège Hurlevent | Brevet</p>');
+    marker4.on('click', function () {
+        this.openPopup();
+    });
+  
+	var marker5 = L.marker([49.37197970411959, 6.23910966240617], {icon: customIcon('blue')}).addTo(map);
+    marker5.bindPopup('<p>EHPAD Saint Elisabeth | <a href="exp4.html">ASL</a></p>');
+    marker5.on('click', function () {
+        this.openPopup();
+    });
+  	
+  	var marker6 = L.marker([49.50898957166386, 6.090029980162261], {icon: customIcon('blue')}).addTo(map);
+    marker6.bindPopup('<p>PreZero Lamesch ENSCH | <a href="exp2.html">Technicienne de surface</a></p>');
+    marker6.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker7 = L.marker([48.289198740181114, 6.945636409055986], {icon: customIcon('blue')}).addTo(map);
+    marker7.bindPopup('<p>ADFIG | <a href="exp3.html">Stage de 2ème année de BUT</a></p>');
+    marker7.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker8 = L.marker([49.366927584336466, 6.158725202269766], {icon: customIcon('blue')}).addTo(map);
+    marker8.bindPopup('<p>ADFIG | <a href="exp1.html">Stage de 1ère année de BTS</a></p>');
+    marker8.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker9 = L.marker([48.85458954628878, 2.356122721076322], {icon: customIcon('yellow')}).addTo(map);
+    marker9.bindPopup('Voyage Scolaire');
+    marker9.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker10 = L.marker([44.57246549846004, 6.680122395970127], {icon: customIcon('yellow')}).addTo(map);
+    marker10.bindPopup('Voyage Scolaire');
+    marker10.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker11 = L.marker([41.90279889655845, 12.497534801205072], {icon: customIcon('yellow')}).addTo(map);
+    marker11.bindPopup('Voyage Scolaire');
+    marker11.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker12 = L.marker([48.23752884291378, -2.566576895701271], {icon: customIcon('yellow')}).addTo(map);
+    marker12.bindPopup('Étés');
+    marker12.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker13 = L.marker([49.315630793969, 6.022576426375941], {icon: customIcon('red')}).addTo(map);
+    marker13.bindPopup('Résidence principale');
+    marker13.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker14 = L.marker([48.287790415073395, 6.944881926431734], {icon: customIcon('red')}).addTo(map);
+    marker14.bindPopup('Appartement etudiant');
+    marker14.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker15 = L.marker([49.51619611930469, 6.103513324367109], {icon: customIcon('orange')}).addTo(map);
+    marker15.bindPopup('<p><a href="https://sumisushi.lu" target="blank">Restaurant japonais</a></p>');
+    marker15.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker16 = L.marker([49.36718631498351, 6.160838616349743], {icon: customIcon('orange')}).addTo(map);
+    marker16.bindPopup('<p><a href="https://www.agglo-thionville.fr/sortir-decouvrir/piscines/piscine-thionville" target="blank">Natation</a></p>');
+    marker16.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker17 = L.marker([49.30263550273025, 6.119269139354191], {icon: customIcon('orange')}).addTo(map);
+    marker17.bindPopup('<p><a href="https://www.eva.gg/fr-FR/locations/thionville-57" target="blank">Jeux vidéo | VR</a></p>');
+    marker17.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker18 = L.marker([49.36173731076018, 6.110822128144151], {icon: customIcon('orange')}).addTo(map);
+    marker18.bindPopup('<p><a href="https://kinepolis.fr/?complex=KTHIO&select_theater=KTHIO&main_section=tous+les+films" target="blank">Cinéma</a></p>');
+    marker18.on('click', function () {
+        this.openPopup();
+    });
+  
+  	var marker18 = L.marker([49.11777373702355, 6.173978197596308], {icon: customIcon('orange')}).addTo(map);
+    marker18.bindPopup('<p><a href="https://cavernedugobelin.com" target="blank">Jeux de société</a></p>');
+    marker18.on('click', function () {
+        this.openPopup();
+    });
+
+    var marker19 = L.marker([48.266133641480224, 7.722029054511703], {icon: customIcon('orange')}).addTo(map);
+    marker19.bindPopup('<p><a href="https://www.europapark.de/fr" target="blank">Parc d attractions</a></p>');
+    marker19.on('click', function () {
+        this.openPopup();
+    });
+
+    function customIcon(color) {
+        return new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-' + color + '.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+    }
+</script>
+
+    <footer>
+        <h4><a href="mailto:terkowsky.sarah@gmail.com">terkowsky.sarah@gmail.com</a></h4>
+    </footer>
+
+</body>
+</html>

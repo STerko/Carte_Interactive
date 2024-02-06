@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Syne;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: black;
+    opacity: 80%;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 2%;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    text-align: center; /* Aligner le contenu au centre de la page */
+}
+
+.content {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-item {
+    margin-bottom: 50px; /* Espace entre les paires */
+    display: flex;
+    justify-content: center;
+}
+
+.image, .text {
+    width: 450px; /* Ajustez la largeur des divs selon vos besoins */
+}
+
+.image img {
+    width: 100%; /* Ajustez la largeur de l'image selon vos besoins */
+    height: auto; /* Pour maintenir le rapport hauteur/largeur de l'image */
+}
+
+.text {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.text p {
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+.reversed {
+    flex-direction: row-reverse; /* Inverser la direction de la flexbox pour la deuxième paire */
+}
+
+footer {
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
